@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Rig Probe</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <header class="top">
+    <div>
+      <h1>Rig Probe</h1>
+      <p class="sub">Which Anthropic SDK features work through your gateway and model — with documented evidence.</p>
+    </div>
+    <div class="env" id="env"></div>
+  </header>
+
+  <main class="layout">
+    <aside class="panel target">
+      <h2><span class="step">1</span> Target</h2>
+      <label class="field">
+        <span>Start from a preset</span>
+        <select id="preset"></select>
+      </label>
+      <p class="help" id="preset-help"></p>
+      <form id="target-form" autocomplete="off" onsubmit="return false"></form>
+      <details class="advanced">
+        <summary>Advanced settings</summary>
+        <div id="advanced-form"></div>
+      </details>
+      <p class="help secure">The key is held in memory by the local server for the run only. It is never written to disk, and every report redacts it.</p>
+    </aside>
+
+    <div class="right">
+      <section class="panel">
+        <div class="row between">
+          <h2><span class="step">2</span> Test cases</h2>
+          <div class="row gap">
+            <button class="ghost" data-select="standard">Standard set</button>
+            <button class="ghost" data-select="all">Everything</button>
+            <button class="ghost" data-select="none">None</button>
+          </div>
+        </div>
+        <p class="help" id="selection-summary"></p>
+        <div id="cases"></div>
+        <div class="runbar">
+          <button id="run" class="primary">Run</button>
+          <button id="cancel" class="ghost" hidden>Cancel</button>
+          <span id="run-error" class="error"></span>
+        </div>
+      </section>
+
+      <section class="panel" id="results-panel" hidden>
+        <div class="row between">
+          <h2><span class="step">3</span> Results and evidence</h2>
+          <div id="evidence-links" class="row gap"></div>
+        </div>
+        <div class="progress"><div id="progress-bar"></div></div>
+        <p id="progress-text" class="help"></p>
+        <div id="verdict" class="verdict" hidden></div>
+        <div id="chips" class="chips"></div>
+        <ul id="findings" class="findings"></ul>
+        <table class="results">
+          <thead><tr><th>Case</th><th>Title</th><th>Result</th><th>Time</th></tr></thead>
+          <tbody id="results"></tbody>
+        </table>
+      </section>
+
+      <section class="panel">
+        <h2>Previous runs</h2>
+        <div id="past"></div>
+      </section>
+    </div>
+  </main>
+  <script type="module" src="/app.js"></script>
+</body>
+</html>

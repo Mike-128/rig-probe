@@ -1,0 +1,36 @@
+{
+  "name": "rig-probe",
+  "version": "0.1.0",
+  "description": "Conformance probe for the Anthropic TypeScript SDK through your gateway and model, with documented test evidence.",
+  "license": "MIT",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "start": "tsx src/server/index.ts",
+    "mock": "tsx test/mock-server.ts",
+    "probe": "tsx src/cli.ts",
+    "catalog": "tsx src/cli.ts catalog",
+    "typecheck": "tsc -p tsconfig.json",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^1.3.0",
+    "@anthropic-ai/vertex-sdk": "^1.1.0",
+    "@hono/node-server": "^2.1.5",
+    "commander": "^15.0.0",
+    "hono": "^4.13.14",
+    "tsx": "^4.23.15",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "@types/node": "^24.19.2",
+    "typescript": "^5.9.3",
+    "vitest": "^3.2.7"
+  },
+  "allowScripts": {
+    "esbuild": false
+  }
+}
